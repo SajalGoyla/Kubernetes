@@ -1,0 +1,2 @@
+how to find out master nodes is running or not
+kubectl get nodes
