@@ -11,3 +11,6 @@
 ####how to verify the pod and node relationship
 kubectl get nodes
 kubectl get pod
+###access the pod outside k8s cluster
+38  kubectl expose pod my-first-pod --type=NodePort
+   39  kubectl get svc
