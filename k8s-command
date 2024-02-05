@@ -1,2 +1,4 @@
 how to find out master nodes is running or not
 kubectl get nodes
+check all the master node pod
+kubectl get pod --all-namespaces
