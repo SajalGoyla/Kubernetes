@@ -20,3 +20,11 @@ kubectl get pod
    44  kubectl get pod
    45  kubectl expose pod my-second-pod --type=NodePort
    46  kubectl get svc
+###how to login inside a pod
+ 49  kubectl exec -it my-first-pod -- /bin/bash
+ ls
+cd /usr/share/nginx/html
+cat index.html
+echo "this is my life" > index.html
+exit
+#
