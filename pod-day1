@@ -1,0 +1,10 @@
+#lets deploy our pod 
+##to deploy our pod we need an image. 
+#the pod manifest file it need to in yaml or json format. 
+
+24  kubectl run my-first-pod --image=nginx --port=80 --dry-run=client -o yaml > pod.yml
+   25  cat pod.yml 
+   26  kubectl apply -f pod.yml 
+   27  kubectl get pod
+   28  kubectl describe pod pod my-first-pod
+   29  kubectl describe pod my-first-pod
