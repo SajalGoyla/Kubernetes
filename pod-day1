@@ -8,3 +8,6 @@
    27  kubectl get pod
    28  kubectl describe pod my-first-pod
  
+####how to verify the pod and node relationship
+kubectl get nodes
+kubectl get pod
