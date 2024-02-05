@@ -14,3 +14,9 @@ kubectl get pod
 ###access the pod outside k8s cluster
 38  kubectl expose pod my-first-pod --type=NodePort
    39  kubectl get svc
+##lets deploy anohter httpd
+42  kubectl run my-second-pod --image=httpd --port=80 --dry-run=client -o yaml > apachepod.yml
+   43  kubectl apply -f apachepod.yml 
+   44  kubectl get pod
+   45  kubectl expose pod my-second-pod --type=NodePort
+   46  kubectl get svc
