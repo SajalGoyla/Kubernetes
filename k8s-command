@@ -8,3 +8,5 @@ crictl ps
  7  kubectl get nodes
     8  kubectl get nodes -o wide
     9  kubectl describe nodes
+how to join a worker node
+kubeadm token create --print-join-command
