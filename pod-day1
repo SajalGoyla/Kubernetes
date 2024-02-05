@@ -6,5 +6,5 @@
    25  cat pod.yml 
    26  kubectl apply -f pod.yml 
    27  kubectl get pod
-   28  kubectl describe pod pod my-first-pod
-   29  kubectl describe pod my-first-pod
+   28  kubectl describe pod my-first-pod
+ 
