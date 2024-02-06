@@ -1,0 +1,55 @@
+ 179  vi mysql.yml
+ apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: mysql 
+  labels:
+    app: mysql 
+  
+spec: ##this is deployment pecification
+  replicas: 1
+  selector:
+    matchLabels: #match expression
+      app: mysql  
+  template: ##3this is template for your container
+    metadata:
+      labels:
+        app: mysql  
+    spec: ##this specification is specification for template
+      containers:
+      - name: mysql 
+        image: mysql:5.6
+        ports:
+        - containerPort: 3306 
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-db-password
+                key: password
+        volumeMounts:
+          - name: mysql-storage 
+            mountPath: /var/lib/mysql
+          - name: userdb-script 
+            mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: mysql-storage
+          persistentVolumeClaim:
+            claimName: task-pv-claim
+        - name: userdb-script
+          configMap: 
+            name: userdb-creation-script 
+    #################### apply the file
+
+  180  kubectl apply -f mysql.yml
+
+   183  kubectl describe deploy mysql
+  184  kubectl get pod
+  185  kubectl exec -it mysql-7458468c78-fjldv -- /bin/bash
+#####once you login 
+mysql -u root -p
+####password is dbpassword11
+show databases;
+exit
+exit
+#####got to mnt/data see that a folder with webappdb
