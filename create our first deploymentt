@@ -33,3 +33,7 @@ kubectl get pod
 kubectl delete pod my-first-deployment-86dcfdf4c6-rvrbl
 kubectl get pod
 
+####relationship between dep+rs+pod
+ 79  kubectl get deploy
+   80  kubectl get rs
+   81  kubectl get pod
