@@ -28,3 +28,8 @@ spec: ##this is deployment pecification
 kubectl apply -f deploy.yml
 kubectl get deploy
 kubectl get pod
+###lets delete a pod and see it comeback or not
+kubectl get pod 
+kubectl delete pod my-first-deployment-86dcfdf4c6-rvrbl
+kubectl get pod
+
