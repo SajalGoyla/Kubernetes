@@ -19,3 +19,21 @@ spec:
 ####save the file and apply it
 kubectl apply -f pv.yml
 kubectl get pv
+##################lets create pvc and attache the same with pv
+vi pvc.yml
+#####################################
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: task-pv-claim
+spec:
+  resources:
+    requests:
+      storage: 2Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+#####################################
+kubectl apply -f pvc.yml
+kubectl get pv
+kubectl get pvc
