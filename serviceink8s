@@ -1,0 +1,4 @@
+97  kubectl expose deploy my-first-deployment --type=NodePort --name=my-first-service
+   98  kubectl get svc
+   99  kubectl describe svc my-first-service
+  100  kubectl get pod -o wide
