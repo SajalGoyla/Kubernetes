@@ -1,3 +1,21 @@
 ###oging to the second machine and create a directory
 sudo -i
 mkdir /mnt/data
+##lets create the storage
+vi pv.yml
+################################
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: task-pv
+spec:
+  capacity:
+    storage: 2Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce #Read #readwritemany
+  hostPath:
+    path: "/mnt/data"
+####save the file and apply it
+kubectl apply -f pv.yml
+kubectl get pv
