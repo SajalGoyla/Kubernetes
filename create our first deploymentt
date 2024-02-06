@@ -56,5 +56,16 @@ kubectl get pod
   104  kubectl describe rs my-first-deployment-86dcfdf4c6
   105  kubectl get deploy
   106  kubectl describe deploy my-first-deployment
+###lets make an rollout possible with wrong image
+ 109  kubectl set image deployment my-first-deployment nginx=nginx:1.161
+  110  kubectl get rs
+  111  kubectl get deploy
+  112  kubectl get pod
+  113  kubectl describe pod my-first-deployment-79c8677895-ntgfg
+  114  kubectl rollout status deployment my-first-deployment
+##press ctrl c to come out
+  115  kubectl rollout history deploy my-first-deployment
+ 
+  120  kubectl rollout history deploy my-first-deployment --revision=2
 
 
