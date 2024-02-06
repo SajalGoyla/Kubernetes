@@ -2,3 +2,7 @@
    98  kubectl get svc
    99  kubectl describe svc my-first-service
   100  kubectl get pod -o wide
+###lets update the image
+103  kubectl set image deployment my-first-deployment nginx=piuma/phpsysinfo
+  104  kubectl get pod
+  105  kubectl get pod -o wide
