@@ -69,3 +69,9 @@ kubectl get pod
   120  kubectl rollout history deploy my-first-deployment --revision=2
 
 
+####rollback to previous release
+ 123  kubectl get deployment
+  124  kubectl rollout undo deploy my-first-deployment
+  125  kubectl get deploy
+  126  kubectl get rs
+  127  kubectl rollout undo deploy my-first-deployment --to-revision=3
