@@ -9,6 +9,7 @@ kind: PersistentVolume
 metadata:
   name: task-pv
 spec:
+  storageClassName: "slow"
   capacity:
     storage: 2Gi
   volumeMode: Filesystem
@@ -27,6 +28,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: task-pv-claim
 spec:
+  storageClassName: "slow"
   resources:
     requests:
       storage: 2Gi
