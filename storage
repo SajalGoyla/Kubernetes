@@ -1,0 +1,3 @@
+###oging to the second machine and create a directory
+sudo -i
+mkdir /mnt/data
