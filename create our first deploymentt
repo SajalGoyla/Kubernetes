@@ -50,8 +50,9 @@ kubectl get pod
  99  kubectl get deploy
   100  kubectl set image deployment my-first-deployment nginx=nginx:1.16.1
   101  kubectl get rs
-  102  kubectl describe my-first-deployment-848dd6cfb5
+#new rs
   103  kubectl describe rs my-first-deployment-848dd6cfb5
+##old rs
   104  kubectl describe rs my-first-deployment-86dcfdf4c6
   105  kubectl get deploy
   106  kubectl describe deploy my-first-deployment
