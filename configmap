@@ -1,0 +1,13 @@
+vi config.yml
+################
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: userdb-creation-script
+data:
+  mysql_usermgmt.sql: |-
+    DROP DATABASE IF EXISTS webappdb;
+    CREATE DATABASE webappdb;
+#########creste the yaml file file
+kubectl apply -f config.yml
+kubectl describe configmap userdb-creation-script
