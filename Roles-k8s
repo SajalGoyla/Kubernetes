@@ -3,5 +3,4 @@
   330  kubectl -n project-hamster create sa jane
   331  kubectl -n project-hamster create role janerole --verb=create --resource=secret,configmap
   333  kubectl -n project-hamster create rolebinding --help
-  334  kubectl -n project-hamster create rolebinding processor --serviceaccount project-hamster:jane
   335  kubectl -n project-hamster create rolebinding processor --role=janerole --serviceaccount project-hamster:jane
