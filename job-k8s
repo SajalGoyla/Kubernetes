@@ -17,4 +17,6 @@ spec:
   316  kubectl apply -f jobs.yaml
 kubectl get jobs
 kubectl get pod
+kubectl logs test-job-8phnj
+
 ####you can see the completaion report
