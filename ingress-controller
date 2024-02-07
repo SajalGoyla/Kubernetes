@@ -3,3 +3,13 @@
  627  kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.6.4/deploy/static/provider/cloud/deploy.yaml
   628  kubectl get ns
   629  kubectl get pods --namespace=ingress-nginx
+####lets create two pod one is nginx one is httpd
+ 237  kubectl run pod1 --image=httpd
+  238  kubectl run pod2 --image=nginx
+  239  kubectl get pod
+####against this pod we will create two services
+  241  kubectl expose pod pod1 --port 80 --name cart
+  242  kubectl expose pod pod2 --port 80 --name payment
+  243  kubectl get svc
+  244  kubectl describe svc cart
+  245  kubectl describe svc payment
