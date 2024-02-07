@@ -1,0 +1,19 @@
+###quota in namespace
+  286  kubectl create ns staging
+  287  kubectl get ns
+  288  kubectl describe ns staging
+  289  vi quota.yml
+###quota
+apiVersion: v1 
+kind: ResourceQuota 
+metadata:
+  name: mem-cpu-demo 
+spec:
+  hard:
+    requests.cpu: "1"
+    requests.memory: 1Gi
+    limits.cpu: "2"
+    limits.memory: 2Gi
+####################################
+  290  kubectl apply -f quota.yml --namespace=staging
+  293  kubectl describe ns staging
