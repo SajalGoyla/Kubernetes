@@ -1,0 +1,10 @@
+####network policy frontend to backend default communication
+ 229  kubectl run frontend --image=nginx
+  230  kubectl run backend --image=nginx
+  231  kubectl get pod
+  232  kubectl get pod -o wide
+  233  kubectl expose pod frontend --port 80
+  234  kubectl expose pod backend --port 80
+  235  kubectl exec frontend -- curl backend
+  236  kubectl exec frontend -- curl 192.168.1.30
+  237  kubectl exec backend -- curl 192.168.1.29
