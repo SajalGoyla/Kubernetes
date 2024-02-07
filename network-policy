@@ -28,3 +28,53 @@ kubectl apply -f default.yml
 ###check front end backend communitaion work or not
 236  kubectl exec frontend -- curl 192.168.1.30
   237  kubectl exec backend -- curl 192.168.1.29
+####frontend to backend policy 
+vi frontend.yml
+###############################
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: frontend
+  namespace: default
+
+spec:
+  podSelector:
+    matchLabels:
+      run: frontend
+  policyTypes:
+
+  - Egress
+  egress:
+    - to:
+      - podSelector:
+          matchLabels:
+            run: backend
+###################apply it
+kubectl apply -f frontend.yml
+######################################
+vi backend.yml
+########################################3
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: backend
+  namespace: default
+
+spec:
+  podSelector:
+    matchLabels:
+      run: backend
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            run: frontend
+###########################
+kubectl apply -f backend.yml
+######################################3
+ 270  kubectl get pod -o wide
+  271  kubectl exec frontend -- curl 192.168.1.30
+  272  kubectl exec backend  -- curl 192.168.1.29
+
