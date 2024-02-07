@@ -1,8 +1,12 @@
 ##lets deploy the ingress controller 
 ##3lets deploy the ingress controller
+
  627  kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.6.4/deploy/static/provider/cloud/deploy.yaml
   628  kubectl get ns
   629  kubectl get pods --namespace=ingress-nginx
+##delete the webhook
+       665  kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
+
 ####lets create two pod one is nginx one is httpd
  237  kubectl run pod1 --image=httpd
   238  kubectl run pod2 --image=nginx
