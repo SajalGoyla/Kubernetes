@@ -13,3 +13,40 @@
   243  kubectl get svc
   244  kubectl describe svc cart
   245  kubectl describe svc payment
+###lets create our ingress
+vi ingress.yml
+###############
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /cart
+        pathType: Prefix
+        backend:
+          service:
+            name: cart
+            port:
+              number: 80
+  - http:
+      paths:
+      - path: /payment
+        pathType: Prefix
+        backend:
+          service:
+            name: payment
+            port:
+              number: 80
+######################################################
+270  kubectl apply -f ingress.yml
+  271  kubectl get ingress
+
+  273  kubectl describe ingress minimal-ingress
+ 
+  275  kubectl get ingressClass
