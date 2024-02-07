@@ -74,7 +74,15 @@ spec:
 ###########################
 kubectl apply -f backend.yml
 ######################################3
+####delete all your pod
+
  270  kubectl get pod -o wide
   271  kubectl exec frontend -- curl 192.168.1.30
   272  kubectl exec backend  -- curl 192.168.1.29
 
+################delete all your policy
+
+ 278  kubectl get networkpolicy
+  279  kubectl delete networkpolicy default-deny
+  280  kubectl delete networkpolicy frontend
+  281  kubectl delete networkpolicy backend
