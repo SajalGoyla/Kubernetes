@@ -13,5 +13,8 @@ spec:
         command: ["echo","welcome to my app1"]
       restartPolicy: Never
 #######################
-  315  kubetl apply -f jobs.yaml
+
   316  kubectl apply -f jobs.yaml
+kubectl get jobs
+kubectl get pod
+####you can see the completaion report
