@@ -17,3 +17,26 @@ spec:
 ####################################
   290  kubectl apply -f quota.yml --namespace=staging
   293  kubectl describe ns staging
+###lets create the pod and see the utiilixation report
+ 299  vi qpod.yml
+#########################################
+apiVersion: v1
+kind: Pod
+metadata:
+  name: quota-pod
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+      - containerPort: 80
+      resources:
+        limits: 
+          memory: "800Mi"
+          cpu: "800m"
+        requests: 
+          memory: "600Mi"
+          cpu: "400m"
+    
+  300  kubectl apply -f qpod.yml --namespace=staging
+  301  kubectl describe ns staging
